@@ -63,8 +63,6 @@ namespace Modern.Forms
             AutoSize = !old;
             AutoSize = old;
         }
-
-
         Size calculate_AutosizeArea () 
         {
             //the layout calculation is corrent - we just need to make controls.width bigger to show all the clipped texts
@@ -134,6 +132,7 @@ namespace Modern.Forms
                     Properties.SetEnum (s_propCheckAlign, value);
                     LayoutTransaction.DoLayoutIf (AutoSize, Parent, this, PropertyNames.GlyphAlign);
                     Invalidate ();
+                    Trigger_Resizing ();
                 }
             }
         }
@@ -191,7 +190,6 @@ namespace Modern.Forms
                 if (Image != value) {
                     Properties.SetObject (s_propImage, value);
                     Invalidate ();
-
                     Trigger_Resizing ();
                 }
             }
@@ -209,6 +207,7 @@ namespace Modern.Forms
                     Properties.SetEnum (s_propImageAlign, value);
                     LayoutTransaction.DoLayoutIf (AutoSize, Parent, this, PropertyNames.ImageAlign);
                     Invalidate ();
+                    Trigger_Resizing ();
                 }
             }
         }
@@ -336,6 +335,7 @@ namespace Modern.Forms
                     Properties.SetEnum (s_propTextAlign, value);
                     LayoutTransaction.DoLayoutIf (AutoSize, Parent, this, PropertyNames.TextAlign);
                     Invalidate ();
+                    Trigger_Resizing ();
                 }
             }
         }
@@ -352,6 +352,7 @@ namespace Modern.Forms
                     Properties.SetEnum (s_propTextImageRelation, value);
                     LayoutTransaction.DoLayoutIf (AutoSize, Parent, this, PropertyNames.TextImageRelation);
                     Invalidate ();
+                    Trigger_Resizing ();
                 }
             }
         }
