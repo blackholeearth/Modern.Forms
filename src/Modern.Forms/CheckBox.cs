@@ -84,14 +84,13 @@ namespace Modern.Forms
             return new Size (rightMax, bottomMax);
         }
 
-        public override Size GetPreferredSize (Size proposedSize)
+        internal override Size GetPreferredSizeCore (Size proposedSize)
         {
-            //return  base.GetPreferredSize (proposedSize);
+            //return base.GetPreferredSizeCore (proposedSize);
             if (AutoSize) 
             {
                 return calculate_AutosizeArea ();
             }
-                
             return DefaultSize;
         }
 
